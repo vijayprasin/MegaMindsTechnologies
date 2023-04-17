@@ -1,0 +1,40 @@
+﻿@page
+@model MegaMinds.Pages.Users.ListModel
+@{
+}
+
+<h1 class="mb-3">List of Users</h1>
+
+@if (Model.Registers != null && Model.Registers.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var register in Model.Registers )
+            {
+                <tr>
+                <td>@register.Id</td>
+                <td>@register.Name</td>
+                <td>@register.Email</td>
+                <td>@register.Phone</td>
+                <td>
+                    <a href="/Users/Edit/@register.Id" class="btn btn-dark">Edit</a>
+                </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>No users Found!</p>
+}

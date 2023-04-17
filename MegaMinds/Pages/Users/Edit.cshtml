@@ -1,0 +1,61 @@
+﻿@page "{id:Guid}"
+@model MegaMinds.Pages.Users.EditModel
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+
+<form method="post">
+
+<h1 class="mb-3">Edit User</h1>
+
+    @if(!string.IsNullOrWhiteSpace(message))
+    {
+        <div class="alert alert-success" role="alert">
+            @message
+        </div>
+    }
+
+    <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="EditUserViewModel.Id"  readonly/>
+    </div>
+
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" asp-for="EditUserViewModel.Name" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="text" class="form-control" asp-for="EditUserViewModel.Email" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="number" class="form-control" asp-for="EditUserViewModel.Phone" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" asp-for="EditUserViewModel.Address" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">City</label>
+    <input type="text" class="form-control" asp-for="EditUserViewModel.City" />
+</div>
+
+<div class="mb-3">
+    <label class="form-label">State</label>
+    <input type="text" class="form-control" asp-for="EditUserViewModel.State" />
+</div>
+
+<div class="mb-3 d-flex justify-content-between">
+    <button type="submit" class="btn btn-success" asp-page-handler="Update">Update</button>
+        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Delete</button>
+</div>
+
+</form>
+
+
+
